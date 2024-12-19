@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - name: Notify Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           curl -X POST -H "Content-Type: application/json" \
-          -d '{"content": "**Action**: '${{ github.event_name }}'\n**Actor**: '${{ github.actor }}'\n**Branch**: '${{ github.ref_name }}'\n**Commit Message**: '${{ github.event.head_commit.message }}'}' \
-          ${{ secrets.https://discord.com/api/webhooks/1319316217483366470/q_tjK_a6lo0cbKN7bluzlZirZ2lTW0RVJzR-zGfD-NPH55FGxwn3e7fUwuFXI2qWsvSH }}
+          -d "{\"content\": \"**Action**: ${{ github.event_name }}\n**Actor**: ${{ github.actor }}\n**Branch**: ${{ github.ref_name }}\n**Commit Message**: ${{ github.event.head_commit.message || 'N/A' }}\"}" \
+          "$DISCORD_WEBHOOK"
