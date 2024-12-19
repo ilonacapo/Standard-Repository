@@ -13,13 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send Discord Notification
-        uses: tprobinson/discord-webhook@v2
-        with:
-          url: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
-            ${{ github.actor }} a effectué une action sur le dépôt :
-            - **Action**: ${{ github.event_name }}
-            - **Repository**: ${{ github.repository }}
-            - **Branch**: ${{ github.ref_name }}
-            - **Commit Message**: ${{ github.event.head_commit.message || 'N/A' }}
+      - name: Notify Discord
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content": "**Action**: '${{ github.event_name }}'\n**Actor**: '${{ github.actor }}'\n**Branch**: '${{ github.ref_name }}'\n**Commit Message**: '${{ github.event.head_commit.message }}'}' \
+          ${{ secrets.DISCORD_WEBHOOK }}
