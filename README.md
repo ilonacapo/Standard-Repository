@@ -42,4 +42,12 @@ Ce repository contient une structure standard pour démarrer un projet web et es
 4. **nginx.conf** :
    - Changez `root` pour pointer vers le répertoire `public` de votre projet Symfony :
      ```nginx
-5. **
+5. **Configurez vos bvariables d'environnement**
+    - A savoir, set les variables dans le .env.example avec les bonnes valeurs
+    SSH_DEPLOY_USER=deployuser
+    SSH_DEPLOY_HOST=192.168.1.1
+    SSH_KEY_PATH=~/.ssh/id_rsa_deploy
+    DEPLOY_DIR=/var/www
+    SERVER_USER="exemple"
+    SERVER_HOST="exemple"
+    SERVER_PATH="exemples"
