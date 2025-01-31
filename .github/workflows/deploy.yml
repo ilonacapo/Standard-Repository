@@ -16,7 +16,7 @@ jobs:
     - name: Deploy to Server
       run: |
         chmod +x ./scripts/deploy.sh
-        ./scripts/deploy.sh
+        ./scripts/deploy.sh prod myapp.com
       env:
         SSH_DEPLOY_USER: ${{ secrets.SSH_DEPLOY_USER }}
         SSH_DEPLOY_HOST: ${{ secrets.SSH_DEPLOY_HOST }}
