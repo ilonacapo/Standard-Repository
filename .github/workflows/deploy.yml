@@ -15,4 +15,4 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        ./scripts/deploy.sh prod myapp.com
+        ./scripts/deploy.sh
