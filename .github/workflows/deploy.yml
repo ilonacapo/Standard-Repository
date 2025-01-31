@@ -17,3 +17,8 @@ jobs:
       run: |
         chmod +x ./scripts/deploy.sh
         ./scripts/deploy.sh
+      env:
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_HOST: ${{ secrets.SERVER_HOST }}
+        SSH_KEY_PATH: ${{ secrets.SSH_KEY_PATH }}
+        DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
