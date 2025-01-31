@@ -15,5 +15,5 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        chmod +x script.sh
+        chmod +x ./scripts/deploy.sh
         ./scripts/deploy.sh
