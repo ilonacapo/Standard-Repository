@@ -16,6 +16,3 @@ jobs:
     - name: Run Tests
       run: |
         make test
-        
-    - name: Notify Discord (Tests Passed)
-      run: ./scripts/notify_discord.sh "Les tests ont réussi !"
