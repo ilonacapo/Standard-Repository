@@ -12,12 +12,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
-- name: Deploy to Server
-  run: |
-    ./scripts/deploy.sh prod myapp.com
-  env:
-    SSH_DEPLOY_USER: ${{ secrets.SSH_DEPLOY_USER }}
-    SSH_DEPLOY_HOST: ${{ secrets.SSH_DEPLOY_HOST }}
-    SSH_KEY_PATH: ${{ secrets.SSH_KEY_PATH }}
-    DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
+      
+    - name: Deploy to Server
+      run: |
+        ./scripts/deploy.sh prod myapp.com
+      env:
+        SSH_DEPLOY_USER: ${{ secrets.SSH_DEPLOY_USER }}
+        SSH_DEPLOY_HOST: ${{ secrets.SSH_DEPLOY_HOST }}
+        SSH_KEY_PATH: ${{ secrets.SSH_KEY_PATH }}
+        DEPLOY_DIR: ${{ secrets.DEPLOY_DIR }}
