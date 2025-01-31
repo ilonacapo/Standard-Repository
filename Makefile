@@ -35,5 +35,20 @@ create-wallet:
 		echo "La clé SSH existe déjà dans $(SSH_KEY)."; \
 	fi
 
-setup: check-docker-compose create-wallet
-	@echo "Configuration terminée. Docker Compose est installé, et la clé SSH a été créée."
+generate-ssh-key:
+	mkdir -p ~/.ssh
+	ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_deploy -N "" -C "deploy_key"
+	@echo "Clé SSH générée à ~/.ssh/id_rsa_deploy"
+
+setup-env:
+	cp .env.example .env.local
+	@echo "Modifiez .env.local avec vos configurations."
+
+deploy:
+	./scripts/deploy.sh $(ENV) $(DOMAIN)
+
+test:
+	@echo "test"
+
+compile:
+	php bin/console asset-map:compile

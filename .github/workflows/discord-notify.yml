@@ -17,5 +17,5 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
           curl -X POST -H "Content-Type: application/json" \
-          -d "{\"content\": \"**Action**: ${{ github.event_name }}\n**Actor**: ${{ github.actor }}\n**Branch**: ${{ github.ref_name }}\n**Commit Message**: ${{ github.event.head_commit.message || 'N/A' }}\"}" \
+          -d "{\"content\": \"**Repository**: ${{ github.repository }}\n**Action**: ${{ github.event_name }}\n**Actor**: ${{ github.actor }}\n**Branch**: ${{ github.ref_name }}\n**Commit Message**: ${{ github.event.head_commit.message || 'N/A' }}\"}" \
           "$DISCORD_WEBHOOK"

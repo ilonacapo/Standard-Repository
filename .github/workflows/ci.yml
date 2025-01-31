@@ -1,0 +1,21 @@
+name: CI Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Tests
+      run: |
+        make test
+        
+    - name: Notify Discord (Tests Passed)
+      run: ./scripts/notify_discord.sh "Les tests ont réussi !"

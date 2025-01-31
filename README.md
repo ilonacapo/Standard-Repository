@@ -1,3 +1,4 @@
+
 # Template de Projet Web 
 
 Ce repository contient une structure standard pour démarrer un projet web et est conçu pour être modifié et adapté à chaque projet.
@@ -41,3 +42,4 @@ Ce repository contient une structure standard pour démarrer un projet web et es
 4. **nginx.conf** :
    - Changez `root` pour pointer vers le répertoire `public` de votre projet Symfony :
      ```nginx
+5. **
